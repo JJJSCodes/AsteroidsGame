@@ -73,9 +73,12 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
     
     //draw the polygon
     beginShape();
+    
     for (int nI = 0; nI < corners; nI++)
     {
       vertex(xCorners[nI], yCorners[nI]);
+      System.out.println(xCorners[nI]);
+      System.out.println(yCorners[nI]);
     }
     endShape(CLOSE);
 

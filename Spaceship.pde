@@ -1,15 +1,9 @@
 class Spaceship extends Floater  
 {   
-   protected double myCenterX, myCenterY;
-   protected double myDirectionX, myDirectionY;
-   protected double myPointDirection;
-   protected int myColor, corners;
-   protected int[] xCorners;
-   protected int[] yCorners;
-   
    Spaceship() {
     myCenterX = 250;
     myCenterY = 250;
+    myColor = color(255);
     corners = 4;
     xCorners = new int[corners];
     yCorners = new int[corners];
@@ -18,31 +12,49 @@ class Spaceship extends Floater
     xCorners[1] = 16;
     yCorners[1] = 0;
     xCorners[2] = -8;
-    xCorners[2] = 8;
+    yCorners[2] = 8;
     xCorners[3] = -2;
-    xCorners[3] = 0;
+    yCorners[3] = 0;
+   }
+   public double getDirectionX() {
+     return (int)myDirectionX;  
    }
    
-   public void move () {
-    myCenterX += myDirectionX;
-    myCenterY += myDirectionY;
-    if(myCenterX > 500) {
-      myCenterX = 0;
+   public double getDirectionY() {
+     return (int)myDirectionY;  
+   }
+   
+   public double getPointDirection() {
+     return (double)myPointDirection;
+   }
+   
+   public void setPointDirection(int degrees) {
+     myPointDirection = degrees; 
+   }
+   
+   public void setDirectionY(double y) {
+     myDirectionY = y;
+   }
+   
+   public void setDirectionX(double x) {
+     myDirectionX = x;
+   }
+   
+   public void setX(int x)
+    {
+       myCenterX = x;
     }
-    else if (myCenterX < 0) {
-      myCenterX = 500;
-   }
-   if(myCenterY > 500) {
-     myCenterY = 0;
-   }
-   else if (myCenterY < 0) {
-      myCenterY = 500; 
-   }
-   }
-   
-   public void accelerate (double dAmount) {
-    double dRadians = myPointDirection*(Math.PI/180); 
-    myDirectionX += ((dAmount) * Math.cos(dRadians));
-    myDirectionY += ((dAmount) * Math.sin(dRadians));
-   }
+    
+    public void setY(int y)
+    {
+      myCenterY = y;
+    }
+    
+    public int getX() {
+      return (int)myCenterX; 
+    }
+    public int getY() {
+      return (int)myCenterY; 
+    }
+
 }
