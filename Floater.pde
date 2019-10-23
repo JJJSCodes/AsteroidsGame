@@ -36,7 +36,7 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
   {      
     //change the x and y coordinates by myDirectionX and myDirectionY       
     myCenterX += myDirectionX;    
-    myCenterY += myDirectionY;     
+    myCenterY += myDirectionY;
 
     //wrap around screen    
     if(myCenterX >width)
@@ -77,8 +77,6 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
     for (int nI = 0; nI < corners; nI++)
     {
       vertex(xCorners[nI], yCorners[nI]);
-      System.out.println(xCorners[nI]);
-      System.out.println(yCorners[nI]);
     }
     endShape(CLOSE);
 
