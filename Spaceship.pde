@@ -56,5 +56,9 @@ class Spaceship extends Floater
     public int getY() {
       return (int)myCenterY; 
     }
+    public void decellerate() {
+      myDirectionX *= .98;
+      myDirectionY *= .98;
+    }
 
 }

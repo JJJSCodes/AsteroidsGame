@@ -15,16 +15,16 @@ public void keyPressed() {
     space1.setY((int)(Math.random()*500));
  }
  if(key == 'w') {
-    space1.accelerate(2);
+    space1.accelerate(.2);
  }
  if(key == 'a') {
-   space1.turn(-20);
+   space1.turn(-10);
  }
  if(key == 's') {
-   space1.accelerate(-2);
+   space1.accelerate(-.2);
  }
  if(key == 'd') {
-   space1.turn(20);
+   space1.turn(10);
  }
 }
 public void draw() 
@@ -35,15 +35,5 @@ public void draw()
   }
   space1.show();
   space1.move();
-  if (space1.getDirectionX() > 1) {
-      space1.setDirectionX(space1.getDirectionX() - .1);
-  }
-  if (space1.getDirectionX() <= 1) {
-     space1.setDirectionX(0); 
-  }
- if (space1.getDirectionY() > 0) {
-      space1.setDirectionY(space1.getDirectionY() - .1);
-  }
-  System.out.println(space1.getDirectionX());
-   System.out.println(space1.getDirectionY());
+  space1.decellerate();
 }
