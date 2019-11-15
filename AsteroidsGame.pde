@@ -1,5 +1,7 @@
 Spaceship space1 = new Spaceship();
 Star[] nightSky = new Star[200];
+//Bullet bull = new Bullet(250, 250, 5, 5, 5.5);
+ArrayList <Bullet> bullet = new ArrayList <Bullet>(); 
 ArrayList <Asteroid> rocks = new ArrayList <Asteroid>(); 
 public void setup() 
 {
@@ -18,6 +20,10 @@ public void keyPressed() {
     space1.setX((int)(Math.random()*500));
     space1.setY((int)(Math.random()*500));
  }
+ if(key == ENTER) {
+    space1.getX(), space1.getY(), 
+    bullet.add(new Bullet());
+ }
  if(key == 'w') {
     space1.accelerate(.2);
  }
@@ -34,10 +40,10 @@ public void keyPressed() {
 public void draw() 
 {
   background(0,0,0);
+  bull.show();
   for(int z = 0; z < rocks.size(); z++) {
     rocks.get(z).show(); 
     rocks.get(z).move();
-    
     if(dist(rocks.get(z).getX(), rocks.get(z).getY(), space1.getX(), space1.getY()) < 20) {
       rocks.remove(z); 
     }
