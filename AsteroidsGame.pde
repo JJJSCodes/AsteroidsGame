@@ -37,8 +37,9 @@ public void draw()
   for(int z = 0; z < rocks.size(); z++) {
     rocks.get(z).show(); 
     rocks.get(z).move();
-    if(rocks.get(z).getX()) {
-     
+    
+    if(dist(rocks.get(z).getX(), rocks.get(z).getY(), space1.getX(), space1.getY()) < 20) {
+      rocks.remove(z); 
     }
   }
   for(int i = 0; i < nightSky.length; i++) {
