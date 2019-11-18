@@ -49,9 +49,14 @@ class Bullet extends Floater {
       return (int)myCenterY; 
     }
     
-  void show() {
+    public void show() {
     super.show();
     fill(255);
     ellipse((float)myCenterX, (float)myCenterY, 12, 12);   
   }
+  
+  //  public void move() {
+  //   super.move();
+  //   myCenterX += myDirectionX;
+  //}
 }

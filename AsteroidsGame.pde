@@ -21,8 +21,7 @@ public void keyPressed() {
     space1.setY((int)(Math.random()*500));
  }
  if(key == ENTER) {
-    space1.getX(), space1.getY(), 
-    bullet.add(new Bullet());
+    bullet.add(new Bullet(space1.getX(), space1.getY(), (int)space1.getDirectionX(), (int)space1.getDirectionY(), space1.getPointDirection()));
  }
  if(key == 'w') {
     space1.accelerate(.2);
@@ -40,13 +39,23 @@ public void keyPressed() {
 public void draw() 
 {
   background(0,0,0);
-  bull.show();
   for(int z = 0; z < rocks.size(); z++) {
     rocks.get(z).show(); 
     rocks.get(z).move();
     if(dist(rocks.get(z).getX(), rocks.get(z).getY(), space1.getX(), space1.getY()) < 20) {
       rocks.remove(z); 
     }
+  }
+  for(int i = 0; i < bullet.size(); i++) {
+   bullet.get(i).show();
+   bullet.get(i).move();
+   for(int j = 0; j < rocks.size(); j++) {
+     if(dist(bullet.get(i).getX(), bullet.get(i).getY(), rocks.get(j).getX(), rocks.get(j).getY()) < 20) {
+     rocks.remove(j);
+     bullet.remove(i);
+     break;
+     }
+   }
   }
   for(int i = 0; i < nightSky.length; i++) {
    nightSky[i].show(); 
